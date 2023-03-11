@@ -182,12 +182,12 @@ namespace EF_Project
                 launch = reservatinObj.Launch;
                 breakfast = reservatinObj.BreakFast;
                 dinner = reservatinObj.Dinner;
-                totalBill -= foodBill;
+                //totalBill -= foodBill;
                 primaryID = reservationId;
             }
             catch (Exception)
             {
-                MessageBox.Show("Updated");
+                MessageBox.Show("Please Select on to Update");
             }
         }
         private void chFoodSupplyStatus_Checked(object sender, RoutedEventArgs e)
@@ -219,15 +219,7 @@ namespace EF_Project
                     .Where(r => r.ReservationId == primaryID)
                     .FirstOrDefault();
 
-             /*   queryString = "update reservation set total_bill='" +
-              *   totalBill + foodBill + "', break_fast='" + breakfast 
-              *   + "', lunch= '" + lunch + "', dinner='" + dinner + "',
-              *   supply_status='" + supply_status + "',cleaning='" 
-              *   + Convert.ToInt32(cleaning) + "',towel='" + Convert.ToInt32(towel)
-              *   + "',s_surprise='" + Convert.ToInt32(surprise) + "',food_bill='"
-              *   + foodBill + "' WHERE Id = '" + primaryID + "';";*/
-
-                if(reservations != null)
+                if(reservations != null && chFoodSupplyStatus.IsChecked == true)
                 {
                     reservations.Total_Bill = totalBill;
                     reservations.Food_Bill = foodBill;
@@ -239,15 +231,14 @@ namespace EF_Project
                     reservations.Towels = towel;
                     reservations.SweetestSurprise = sweetestsrp;
                     reservations.Food_Bill = foodBill;
-                }
-            context.SaveChanges();
-      //      MessageBox.Show("Updated");
-            listBoxFromDataBase();
-            LoadForDataGridView();
-            resetKitchen();                
+                    context.SaveChanges();
+                    MessageBox.Show("Updated");
+                    listBoxFromDataBase();
+                    LoadForDataGridView();
+                    resetKitchen();
+                }                          
             }
         }
-
         private void resetKitchen()
         {
             foreach (var control in Grid1.Children)

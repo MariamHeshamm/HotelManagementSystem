@@ -34,6 +34,12 @@ namespace EF_Project
         public IEnumerable<int> roomNumbersChecked = new List<int>();
         public IEnumerable<int> roomNumbersUnChecked = new List<int>();
         public List<int> allrooms = new List<int>();
+        public List<int> singleRooms = new List<int>();
+        public List<int> duplexRooms = new List<int>();
+        public List<int> suiteRooms = new List<int>();
+        public List<int> TwinRooms = new List<int>();
+        public List<int> doubleRooms = new List<int>();
+
         int breakfastQ = 0;
         int launchQ = 0;
         int dinnerQ = 0;
@@ -199,14 +205,40 @@ namespace EF_Project
                         where room.Availability == true
                         select room.RoomNumber
                         ).ToList();
-           /* foreach (var room in roomNumbersChecked)
-            {
-                if (allrooms.Contains(room))
-                {
-                    allrooms.Remove(room);
-                }
-            }*/
-            comboRoomNumber.ItemsSource = allrooms;
+
+            singleRooms = (from room in context.Rooms
+                        where room.Availability == true && room.RoomType =="Single"
+                        select room.RoomNumber
+                        ).ToList();
+
+            doubleRooms = (from room in context.Rooms
+                        where room.Availability == true && room.RoomType=="Double"
+                        select room.RoomNumber
+                        ).ToList();
+
+            TwinRooms = (from room in context.Rooms
+                        where room.Availability == true && room.RoomType=="Twin"
+                        select room.RoomNumber
+                        ).ToList();
+
+            duplexRooms = (from room in context.Rooms
+                        where room.Availability == true && room.RoomType=="Duplex"
+                        select room.RoomNumber
+                        ).ToList();
+
+            suiteRooms = (from room in context.Rooms
+                           where room.Availability == true && room.RoomType=="Suite"
+                           select room.RoomNumber
+                       ).ToList();
+
+            /* foreach (var room in roomNumbersChecked)
+             {
+                 if (allrooms.Contains(room))
+                 {
+                     allrooms.Remove(room);
+                 }
+             }*/
+           // comboRoomNumber.ItemsSource = allrooms;
            // comboStates.ItemsSource = context.Rooms.Local.ToBindingList();
             //comboRoomNumber.DisplayMemberPath = "RoomNumber";
            // comboRoomNumber.SelectedValuePath = "RoomId";
@@ -290,26 +322,31 @@ namespace EF_Project
             {
                 totalAmount = 149;
                 comboFloorNumber.SelectedItem = 1;
+                comboRoomNumber.ItemsSource = singleRooms;
             }
             else if (comboRoomTypes.SelectedItem.Equals("Double"))
             {
                 totalAmount = 299;
                 comboFloorNumber.SelectedItem = 2 ;
+                comboRoomNumber.ItemsSource = doubleRooms;
             }
             else if (comboRoomTypes.SelectedItem.Equals("Twin"))
             {
                 totalAmount = 349;
                 comboFloorNumber.SelectedItem = 3;
+                comboRoomNumber.ItemsSource = TwinRooms;
             }
             else if (comboRoomTypes.SelectedItem.Equals("Duplex"))
             {
                 totalAmount = 399;
                 comboFloorNumber.SelectedItem = 4;
+                comboRoomNumber.ItemsSource = duplexRooms;
             }
             else if (comboRoomTypes.SelectedItem.Equals("Suite"))
             {
                 totalAmount = 499;
                 comboFloorNumber.SelectedItem = 5;
+                comboRoomNumber.ItemsSource = suiteRooms;
             }
         }
 
@@ -419,9 +456,36 @@ namespace EF_Project
             comboNumOfGuests.SelectedValue = reservationRow?.Number_of_Guests;
             comboRoomTypes.SelectedValue = reservationRow?.Room.RoomType;
             comboFloorNumber.SelectedValue = reservationRow?.Room.RoomFloor;
-            allrooms.Add(reservationRow.Room.RoomNumber);
-            comboRoomNumber.ItemsSource = allrooms;
-            comboRoomNumber.SelectedIndex = comboRoomNumber.Items.IndexOf(reservationRow.Room.RoomNumber);//(object) reservationRow.Room.RoomNumber;
+                if (reservationRow.Room.RoomType == "Single") 
+                {
+                    singleRooms.Add(reservationRow.Room.RoomNumber);
+                    comboRoomNumber.ItemsSource = singleRooms;
+                    comboRoomNumber.SelectedIndex = comboRoomNumber.Items.IndexOf(reservationRow.Room.RoomNumber);//(object) reservationRow.Room.RoomNumber;
+                }
+                else if (reservationRow.Room.RoomType == "Double") 
+                {
+                    doubleRooms.Add(reservationRow.Room.RoomNumber);
+                    comboRoomNumber.ItemsSource = doubleRooms;
+                    comboRoomNumber.SelectedIndex = comboRoomNumber.Items.IndexOf(reservationRow.Room.RoomNumber);//(object) reservationRow.Room.RoomNumber;
+                }
+                else if (reservationRow.Room.RoomType == "Twin")
+                {
+                    TwinRooms.Add(reservationRow.Room.RoomNumber);
+                    comboRoomNumber.ItemsSource = TwinRooms;
+                    comboRoomNumber.SelectedIndex = comboRoomNumber.Items.IndexOf(reservationRow.Room.RoomNumber);//(object) reservationRow.Room.RoomNumber;
+                }
+                else if (reservationRow.Room.RoomType == "Duplex")
+                {
+                    duplexRooms.Add(reservationRow.Room.RoomNumber);
+                    comboRoomNumber.ItemsSource = duplexRooms;
+                    comboRoomNumber.SelectedIndex = comboRoomNumber.Items.IndexOf(reservationRow.Room.RoomNumber);//(object) reservationRow.Room.RoomNumber;
+                }
+                else if (reservationRow.Room.RoomType == "Suite") 
+                {
+                    suiteRooms.Add(reservationRow.Room.RoomNumber);
+                    comboRoomNumber.ItemsSource = suiteRooms;
+                    comboRoomNumber.SelectedIndex = comboRoomNumber.Items.IndexOf(reservationRow.Room.RoomNumber);//(object) reservationRow.Room.RoomNumber;
+                }
             dataArrival.Text = reservationRow?.ArrivalTime.ToString();
             dataDeparture.Text = reservationRow?.LeavingTime.ToString();
             checkin.IsChecked = reservationRow?.Check_In;

@@ -103,7 +103,7 @@
                                 <Label Margin="5" Width="180" Content="#" FontWeight="Light"></Label>
                             </StackPanel>
                             <StackPanel Grid.Row="4" HorizontalAlignment="Center" Orientation="Horizontal">
-                                <ComboBox Name="comboFloorNumber" Text="Month" Margin="5" Width="180" ></ComboBox>
+                                <ComboBox IsEnabled="False" Name="comboFloorNumber" Text="Month" Margin="5" Width="180" ></ComboBox>
                                 <ComboBox Name="comboRoomNumber" Text="Day" Margin="5" Width="180" ></ComboBox>
                             </StackPanel>
                             <Label Grid.Row="5" Content="Entry[date]" ></Label>
