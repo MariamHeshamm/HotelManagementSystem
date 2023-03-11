@@ -1,0 +1,184 @@
+﻿<Window x:Name="hotel_frontend_window" x:Class="EF_Project.HotelFrontend"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EF_Project"
+        mc:Ignorable="d"
+        Title="HotelFrontend" Height="570" Width="1300" Loaded="Window_Loaded" Closing="hotel_frontend_window_Closing">
+    <StackPanel Orientation="Horizontal">
+        <TabControl Name="Tabs1" TabStripPlacement="Top" Background="LightGray" BorderBrush="Blue" Margin="5,5,5,10">
+            <TabItem Name="tabItemResevation"  Header="Reservation" IsSelected="True" Background="White" Loaded="tabItemResevation_Loaded">
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,-6">
+                    <Border BorderBrush="Gray" BorderThickness="1" CornerRadius="2">
+                        <Grid Width="390" Name="grid1" Background="#FFEEEEEE" >
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="30px"></RowDefinition>
+                                <RowDefinition Height="30px"></RowDefinition>
+                                <RowDefinition Height="25px"></RowDefinition>
+                                <RowDefinition Height="35px"></RowDefinition>
+                                <RowDefinition Height="30px"></RowDefinition>
+                                <RowDefinition Height="30px"></RowDefinition>
+                                <RowDefinition Height="30px"></RowDefinition>
+                                <RowDefinition Height="30px"></RowDefinition>
+                                <RowDefinition Height="30px"></RowDefinition>
+                                <RowDefinition Height="30px"></RowDefinition>
+                                <RowDefinition Height="40px"></RowDefinition>
+                                <RowDefinition Height="40px"></RowDefinition>
+                                <RowDefinition Height="40px"></RowDefinition>
+                                <RowDefinition Height="40px"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <StackPanel Grid.Row="0"  Orientation="Horizontal" HorizontalAlignment="Stretch" >
+                                <Label Width="200" Content="First Name" FontSize="12" FontWeight="Light"/>
+                                <Label Content="Last Name" FontSize="12" FontWeight="Light"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="1">
+                                <TextBox Name="txtFirstName" Margin="5" Width="190" ></TextBox>
+                                <TextBox Name="txtLastName" Margin="5" Width="190"></TextBox>
+                            </StackPanel>
+                            <Label Grid.Row="2" Content="Birthday" FontSize="12" FontWeight="Light"/>
+                            <StackPanel Grid.Row="3" Orientation="Horizontal">
+                                <Label Margin="5" Width="120" Content="Day" FontWeight="Light"></Label>
+                                <Label Margin="5" Width="120" Content="Month" FontWeight="Light"></Label>
+                                <Label Margin="5" Width="120" Content="Year" FontWeight="Light"></Label>
+                            </StackPanel>
+                            <StackPanel Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Center">
+                                <ComboBox Name="comboDays"  Margin="5" Width="120" ></ComboBox>
+                                <ComboBox Name="comboMonths" Margin="5" Width="120" ></ComboBox>
+                                <TextBox Name="txtYear" Margin="5" Width="120"></TextBox>
+                            </StackPanel>
+                            <Label Grid.Row="5" Content="Gender" FontSize="12" FontWeight="Light"/>
+                            <ComboBox Name="comboGender" Grid.Row="6"  Margin="5" Width="250" ></ComboBox>
+
+                            <Label Grid.Row="7" Content="Phone number" FontSize="12" FontWeight="Light"/>
+                            <TextBox Name="txtPhone" Grid.Row="8" Margin="5" Width="290"></TextBox>
+
+                            <Label Grid.Row="9" Content="Your e-mail address" FontSize="12" FontWeight="Light"/>
+                            <TextBox Name="txtEmail" Grid.Row="10" Margin="5" Width="290"></TextBox>
+                            <StackPanel Grid.Row="11" Orientation="Horizontal">
+                                <Label Content="street address" FontSize="12" FontWeight="Light"/>
+                                <TextBox Name="txtStreetAddress" Margin="5" Width="250"></TextBox>
+                            </StackPanel>
+                            <StackPanel Grid.Row="12" Orientation="Horizontal" HorizontalAlignment="Center">
+                                <Label Content="Apt./Suite" FontSize="12" FontWeight="Light"/>
+                                <TextBox Name="txtAptSuite" Margin="5" Width="120"></TextBox>
+                                <Label Content="City" FontSize="12" FontWeight="Light"/>
+                                <TextBox Name="txtCity" Margin="5" Width="120"></TextBox>
+                            </StackPanel>
+                            <StackPanel Grid.Row="13" Orientation="Horizontal" HorizontalAlignment="Center">
+                                <Label Content="State" FontSize="12" FontWeight="Light"/>
+                                <ComboBox Name="comboStates" Margin="5" Width="120" ></ComboBox>
+                                <Label Content="Zip Code" FontSize="12" FontWeight="Light"/>
+                                <TextBox Name="txtZipCode" Margin="5" Width="120"></TextBox>
+                            </StackPanel>
+                        </Grid>
+                    </Border>
+                    <Border BorderBrush="Gray" BorderThickness="1" CornerRadius="2">
+                        <Grid Width="390" Name="grid2" Background="#FFEEEEEE">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="31px"></RowDefinition>
+                                <RowDefinition Height="35px"></RowDefinition>
+                                <RowDefinition Height="35px"></RowDefinition>
+                                <RowDefinition Height="33px"></RowDefinition>
+                                <RowDefinition Height="32px"></RowDefinition>
+                                <RowDefinition Height="32px"></RowDefinition>
+                                <RowDefinition Height="32px"></RowDefinition>
+                                <RowDefinition Height="32px"></RowDefinition>
+                                <RowDefinition Height="32px"></RowDefinition>
+                                <RowDefinition Height="60"></RowDefinition>
+                                <RowDefinition Height="50"></RowDefinition>
+                                <RowDefinition Height="90"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Label HorizontalAlignment="Left" Grid.Row="0" Width="200" Content="Your Choices" FontSize="12" FontWeight="Light"/>
+                            <StackPanel Grid.Row="1" Orientation="Horizontal">
+                                <Label Margin="5" Width="190" Content="# of guests" FontWeight="Light"></Label>
+                                <Label Margin="5" Width="180" Content="Room Type" FontWeight="Light"></Label>
+                            </StackPanel>
+                            <StackPanel Grid.Row="2" HorizontalAlignment="Center" Orientation="Horizontal">
+                                <ComboBox x:Name="comboNumOfGuests" Margin="5" Width="180" ></ComboBox>
+                                <ComboBox Name="comboRoomTypes" Margin="5" Width="180" SelectionChanged="comboRoomTypes_SelectionChanged" ></ComboBox>
+                            </StackPanel>
+                            <StackPanel Grid.Row="3" Orientation="Horizontal">
+                                <Label Margin="5" Width="190" Content="Floor" FontWeight="Light"></Label>
+                                <Label Margin="5" Width="180" Content="#" FontWeight="Light"></Label>
+                            </StackPanel>
+                            <StackPanel Grid.Row="4" HorizontalAlignment="Center" Orientation="Horizontal">
+                                <ComboBox Name="comboFloorNumber" Text="Month" Margin="5" Width="180" ></ComboBox>
+                                <ComboBox Name="comboRoomNumber" Text="Day" Margin="5" Width="180" ></ComboBox>
+                            </StackPanel>
+                            <Label Grid.Row="5" Content="Entry[date]" ></Label>
+                            <DatePicker Name="dataArrival" Width="300" Grid.Row="6"></DatePicker>
+                            <Label Grid.Row="7" Content="Departure[date]" ></Label>
+                            <DatePicker Name="dataDeparture" Width="300" Grid.Row="8"></DatePicker>
+                            <Button x:Name="btnFoodAndMenu" Margin="10" Grid.Row="9" Click="btnFoodAndMenu_Click" Content="Food and menu" ></Button>
+                            <StackPanel Grid.Row="10" Orientation="Horizontal" HorizontalAlignment="Center">
+                                <CheckBox   Name="checkin" Checked="checkin_Checked" Unchecked="checkin_Unchecked" ></CheckBox>
+                                <Label Name="lblCheckin" Width="80" Content="CheckIn?"></Label>
+                                <CheckBox Name="sms"></CheckBox>
+                                <Label  Width="80" Content="SendSMS?"></Label>
+                                <CheckBox  Name="FoodOrSupply" Checked="FoodOrSupply_Checked" Unchecked="FoodOrSupply_Unchecked"></CheckBox>
+                                <Label Name="lblFoodSupply"  Width="140" Content="Food/Supply status?"></Label>
+                            </StackPanel>
+                            <StackPanel Grid.Row="11" Orientation="Vertical">
+                                <Button Name="btnPayment" Margin="6" Height="30" Click="btnPayment_Click" Content="Finalize Bill"></Button>
+                                <Button Name="btnSubmit" Margin="6" Height="30" Click="btnSubmit_Click" Content="Submit"></Button>
+                            </StackPanel>
+                        </Grid>
+                    </Border>
+                    <Border BorderBrush="Gray" BorderThickness="1" CornerRadius="2">
+                        <Grid Width="390" Name="grid3" Background="#FFEEEEEE">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="250"></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <StackPanel Grid.Row="0">
+                                <Label Visibility="Hidden" Name="lblSelectReservations" Content="Select reservation to edit"></Label>
+                                <ComboBox Visibility="Hidden" Name="comboReservationList" SelectionChanged="comboReservationList_SelectionChanged" Margin="10"></ComboBox>
+                            </StackPanel>
+                            <StackPanel Grid.Row="1" Margin="10">
+                                <Button Name="btnUpdateReservation" Margin="10" Height="30" Content="Update" Visibility="Hidden" Click="btnUpdateReservation_Click"></Button>
+                                <Button Name="btnDeleteReservation" Margin="10" Height="30" Content="Delete" Visibility="Hidden" Click="btnDeleteReservation_Click"></Button>
+                                <Button Name="btnEditReservation" Margin="10" Height="30" Content="Edit existing Reservation" Click="Edit_Reservation_Button_Click"></Button>
+                                <Button Name="btnNewReservation" Margin="10" Height="30" Content="New Reservation" Click="btnNewReservation_Click"></Button>
+                            </StackPanel>
+                        </Grid>
+                    </Border>
+                </StackPanel>
+            </TabItem>
+            <TabItem  Header="Universal Search" Background="White">
+                <StackPanel HorizontalAlignment="Center" Width="1190">
+                    <TextBox x:Name="txtSearch" HorizontalAlignment="Center" Width="1100" Height="60" FontSize="20" Margin="0,200,0,0" KeyDown="txtSearch_KeyDown" >
+                        <TextBox.Background>
+                            <ImageBrush x:Name="searchIcon" AlignmentX="Right" ImageSource="/room.png" Stretch="Uniform"/>
+                        </TextBox.Background>
+                    </TextBox>
+                    <DataGrid Name="datagridSearchAllinreservation" Width="1250" Margin="10 ,10, 10, 10"></DataGrid>
+                </StackPanel>
+            </TabItem>
+            <TabItem Header="Reservation Adv.view" Background="White">
+                <DataGrid Name="datagridResevervationlist" Width="1182" ></DataGrid>
+            </TabItem>
+
+            <TabItem Header="Room Availability" Background="White" Loaded="TabItem_Loaded" >
+                <StackPanel Orientation="Horizontal" Width="1270">
+                    <StackPanel>
+                        <Label Content="Occupied" FontSize="18" FontWeight="Light"></Label>
+                        <Label Content="Room#| Type | ID | Name |  Phone" FontSize="18" FontWeight="Light"></Label>
+                        <ListBox FontSize="18" FontWeight="Light" Margin="10,10,0,13" Name="listBox1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="625" Height="500">
+                   
+                </ListBox>
+                    </StackPanel>
+                    <StackPanel>
+                        <Label Content="Reserved" FontSize="18" FontWeight="Light"></Label>
+                        <Label Content="Room#| Type | ID | Name |  Phone" FontSize="18" FontWeight="Light"></Label>
+
+                        <ListBox FontSize="18" FontWeight="Light" Margin="10,10,0,13" Name="listBox2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="625" Height="500">
+                   
+                </ListBox>
+                    </StackPanel>
+                </StackPanel>
+            </TabItem>
+
+        </TabControl>
+    </StackPanel>
+</Window>

@@ -1,0 +1,28 @@
+﻿<Window x:Class="EF_Project.License"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EF_Project"
+        mc:Ignorable="d"
+        Title="License" Height="250" Width="250">
+    <Grid>
+        <TextBox TextWrapping="Wrap"
+  AcceptsReturn="True"
+                 AcceptsTab="True"
+  VerticalScrollBarVisibility="Visible" >
+            This program is written for educational purposes only. 
+ 
+Open Source frameworks:
+Modern UI - most of the metro UI implimented using this open source framework
+license under: MIT - http://github.com/viperneo
+
+Twilio - this framework by twilio was used to send the Message to phone number 
+regarding
+customer reservation. 
+https://www.twilio.com/
+
+
+        </TextBox>
+    </Grid>
+</Window>

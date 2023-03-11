@@ -1,0 +1,10 @@
+D:\ITI 2022-2023\C#\Tasks\EF_Project\EF_Project\obj\Release\net7.0-windows\EF_Project.csproj.AssemblyReference.cache
+D:\ITI 2022-2023\C#\Tasks\EF_Project\EF_Project\obj\Release\net7.0-windows\FinalizePayment.g.cs
+D:\ITI 2022-2023\C#\Tasks\EF_Project\EF_Project\obj\Release\net7.0-windows\FoodMenu.g.cs
+D:\ITI 2022-2023\C#\Tasks\EF_Project\EF_Project\obj\Release\net7.0-windows\Frontedn.g.cs
+D:\ITI 2022-2023\C#\Tasks\EF_Project\EF_Project\obj\Release\net7.0-windows\License.g.cs
+D:\ITI 2022-2023\C#\Tasks\EF_Project\EF_Project\obj\Release\net7.0-windows\Login.g.cs
+D:\ITI 2022-2023\C#\Tasks\EF_Project\EF_Project\obj\Release\net7.0-windows\MainWindow.g.cs
+D:\ITI 2022-2023\C#\Tasks\EF_Project\EF_Project\obj\Release\net7.0-windows\App.g.cs
+D:\ITI 2022-2023\C#\Tasks\EF_Project\EF_Project\obj\Release\net7.0-windows\EF_Project_MarkupCompile.cache
+D:\ITI 2022-2023\C#\Tasks\EF_Project\EF_Project\obj\Release\net7.0-windows\EF_Project_MarkupCompile.lref
