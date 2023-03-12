@@ -318,33 +318,44 @@ namespace EF_Project
 
         private void comboRoomTypes_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+           using FrontendContext context = new FrontendContext();
+            context.Reservations.Load();
+            context.Rooms.Load();
+            context.Customers.Load();
+            context.States.Load();
+           
             if (comboRoomTypes.SelectedItem.Equals("Single"))
             {
-                totalAmount = 149;
+                var roomPrice = context.Rooms.Where(r => r.RoomType == "Single").Select(r => r.Price).FirstOrDefault();
+                totalAmount = roomPrice;
                 comboFloorNumber.SelectedItem = 1;
                 comboRoomNumber.ItemsSource = singleRooms;
             }
             else if (comboRoomTypes.SelectedItem.Equals("Double"))
             {
-                totalAmount = 299;
+                var roomPrice = context.Rooms.Where(r => r.RoomType == "Double").Select(r => r.Price).FirstOrDefault();
+                totalAmount = roomPrice;
                 comboFloorNumber.SelectedItem = 2 ;
                 comboRoomNumber.ItemsSource = doubleRooms;
             }
             else if (comboRoomTypes.SelectedItem.Equals("Twin"))
             {
-                totalAmount = 349;
+                var roomPrice = context.Rooms.Where(r => r.RoomType == "Twin").Select(r => r.Price).FirstOrDefault();
+                totalAmount = roomPrice;
                 comboFloorNumber.SelectedItem = 3;
                 comboRoomNumber.ItemsSource = TwinRooms;
             }
             else if (comboRoomTypes.SelectedItem.Equals("Duplex"))
             {
-                totalAmount = 399;
+                var roomPrice = context.Rooms.Where(r => r.RoomType == "Duplex").Select(r => r.Price).FirstOrDefault();
+                totalAmount = roomPrice;
                 comboFloorNumber.SelectedItem = 4;
                 comboRoomNumber.ItemsSource = duplexRooms;
             }
             else if (comboRoomTypes.SelectedItem.Equals("Suite"))
             {
-                totalAmount = 499;
+                var roomPrice = context.Rooms.Where(r => r.RoomType == "Suite").Select(r => r.Price).FirstOrDefault();
+                totalAmount = roomPrice;
                 comboFloorNumber.SelectedItem = 5;
                 comboRoomNumber.ItemsSource = suiteRooms;
             }
