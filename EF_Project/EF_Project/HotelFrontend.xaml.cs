@@ -691,6 +691,10 @@ namespace EF_Project
             bool b = false;
             if (paymentType == "Debit") { b = true; }
             else if (paymentType == "Credit") { b = true; }
+            if((int)comboNumOfGuests.SelectedValue >= 3)
+            {
+                totalAmount += ((int)comboNumOfGuests.SelectedValue) * 5;
+            }
 
             int roomId = context.Rooms.Where(p => p.RoomNumber == (int)comboRoomNumber.SelectedValue)
                 .Select(p => p.RoomId).FirstOrDefault();
@@ -757,6 +761,10 @@ namespace EF_Project
             bool b = false;
             if (paymentType == "Debit") { b = true; }
             else if (paymentType == "Credit") { b = true; }
+            if ((int)comboNumOfGuests.SelectedValue >= 3)
+            {
+                totalAmount += ((int)comboNumOfGuests.SelectedValue) * 5;
+            }
             FrontendContext context = new FrontendContext();
             context.Reservations.Load();
             context.Rooms.Load();
